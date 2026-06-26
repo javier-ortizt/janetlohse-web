@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Janet Lohse Web
 
-## Getting Started
+Website for Janet Lohse: author, designer, speaker, and consultant. The site presents her talks, services, book, media presence, background, and contact flow.
 
-First, run the development server:
+## Project Context
+
+This is a static-export Next.js app intended for deployment from GitHub and Firebase Hosting.
+
+- Framework: Next.js 16 App Router
+- Language: TypeScript
+- UI: React components with local design-system tokens
+- Hosting target: Firebase Hosting
+- Static output: `out/`
+- Production domain: `janetlohse.com`
+
+## Main Sections
+
+- `/` - Home page with hero, services, talks, book, and contact CTA
+- `/sobre-mi` - Biography and professional background
+- `/charlas` - Talks, workshops, formats, and target audiences
+- `/servicios` - Service design and experience consulting
+- `/libro` - "Una mesa para uno" book page
+- `/medios` - Media, interviews, press, and collaborations
+- `/contacto` - Contact form for talks, consulting, media, and collaborations
+
+## Requirements
+
+- Node.js 20+
+- npm
+- Firebase CLI for deployment
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run locally:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build the static site:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The build generates the static export in `out/`.
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+Firebase Hosting is configured in `firebase.json` to publish the `out/` directory.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Deploy manually:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run deploy
+```
 
-## Deploy on Vercel
+Or run the steps separately:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run build
+firebase deploy --only hosting
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The Firebase project alias is configured in `.firebaserc`:
+
+```json
+{
+  "projects": {
+    "default": "janetlohse-com"
+  }
+}
+```
+
+## GitHub Setup
+
+Recommended repository contents are this `janetlohse-web` directory, including:
+
+- `src/` for app pages, components, and styles
+- `public/images/` for site imagery
+- `public/fonts/` for brand fonts
+- `firebase.json` and `.firebaserc` for hosting deployment
+- `next.config.ts` with static export settings
+
+Generated folders such as `.next/`, `out/`, and `node_modules/` are ignored and should not be committed.
+
+## Contact Form
+
+The contact form currently posts to a placeholder Formspree endpoint:
+
+```ts
+https://formspree.io/f/YOUR_FORM_ID
+```
+
+Before production use, replace `YOUR_FORM_ID` in `src/components/ContactForm.tsx` with the real Formspree form ID or swap in the preferred backend endpoint.
+
+## Assets And Styling
+
+The visual system uses local CSS tokens under `src/styles/tokens/` and brand assets under `public/`.
+
+Important asset paths:
+
+- `public/images/` - Janet portraits and book cover
+- `public/fonts/` - local font files used by the theme
+- `src/styles/globals.css` - global layout, font loading, and responsive helpers
+
+## Verification
+
+Current deployment verification command:
+
+```bash
+npm run build
+```
+
+This should complete successfully and generate all static routes before deployment.

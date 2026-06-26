@@ -1,0 +1,90 @@
+/* ─────────────────────────────────────────
+   Janet Lohse Design System — Color Tokens
+   Palette: warm neutrals + Burgundy · Olive · Petrol
+   ───────────────────────────────────────── */
+
+:root {
+  /* ── Neutrals (warm stone/sand undertone) ── */
+  --neutral-0:   oklch(99.2% 0.003 80);
+  --neutral-50:  oklch(97.5% 0.005 75);
+  --neutral-100: oklch(93.5% 0.009 72);
+  --neutral-200: oklch(87.5% 0.012 70);
+  --neutral-300: oklch(78%   0.015 68);
+  --neutral-400: oklch(66%   0.018 65);
+  --neutral-500: oklch(54%   0.016 63);
+  --neutral-600: oklch(42%   0.014 62);
+  --neutral-700: oklch(32%   0.012 60);
+  --neutral-800: oklch(23%   0.010 58);
+  --neutral-900: oklch(15%   0.007 55);
+
+  /* ── Burgundy (Burdeo) — deep wine-red ── */
+  --burgundy-50:  oklch(97.5% 0.008 12);
+  --burgundy-100: oklch(93%   0.022 12);
+  --burgundy-200: oklch(84%   0.055 12);
+  --burgundy-300: oklch(71%   0.098 12);
+  --burgundy-400: oklch(56%   0.138 12);
+  --burgundy-500: oklch(43%   0.152 12);
+  --burgundy-600: oklch(35%   0.138 12);
+  --burgundy-700: oklch(27%   0.115 12);
+  --burgundy-800: oklch(20%   0.085 12);
+  --burgundy-900: oklch(13%   0.055 12);
+
+  /* ── Olive — earthy muted green ── */
+  --olive-50:  oklch(97.5% 0.015 118);
+  --olive-100: oklch(92.5% 0.040 118);
+  --olive-200: oklch(84.5% 0.080 118);
+  --olive-300: oklch(73%   0.115 118);
+  --olive-400: oklch(61%   0.135 118);
+  --olive-500: oklch(50%   0.135 118);
+  --olive-600: oklch(41%   0.115 118);
+  --olive-700: oklch(32%   0.090 118);
+  --olive-800: oklch(23%   0.065 118);
+  --olive-900: oklch(15%   0.040 118);
+
+  /* ── Petrol Blue — deep teal-slate ── */
+  --petrol-50:  oklch(97%   0.012 205);
+  --petrol-100: oklch(91.5% 0.038 205);
+  --petrol-200: oklch(82.5% 0.072 205);
+  --petrol-300: oklch(70%   0.108 205);
+  --petrol-400: oklch(57%   0.130 205);
+  --petrol-500: oklch(46%   0.128 205);
+  --petrol-600: oklch(37%   0.110 205);
+  --petrol-700: oklch(28%   0.088 205);
+  --petrol-800: oklch(20%   0.062 205);
+  --petrol-900: oklch(13%   0.040 205);
+
+  /* ── Semantic Surface ── */
+  --color-bg:              var(--neutral-0);
+  --color-bg-subtle:       var(--neutral-50);
+  --color-bg-muted:        var(--neutral-100);
+  --color-surface:         #ffffff;
+  --color-surface-raised:  var(--neutral-0);
+
+  /* ── Semantic Border ── */
+  --color-border:          var(--neutral-200);
+  --color-border-strong:   var(--neutral-300);
+  --color-border-subtle:   var(--neutral-100);
+
+  /* ── Semantic Text ── */
+  --color-text-primary:    var(--neutral-800);
+  --color-text-secondary:  var(--neutral-600);
+  --color-text-tertiary:   var(--neutral-400);
+  --color-text-disabled:   var(--neutral-300);
+  --color-text-inverse:    var(--neutral-0);
+
+  /* ── Semantic Accents ── */
+  --color-accent-1:        var(--burgundy-500);
+  --color-accent-1-light:  var(--burgundy-100);
+  --color-accent-1-dark:   var(--burgundy-700);
+
+  --color-accent-2:        var(--olive-500);
+  --color-accent-2-light:  var(--olive-100);
+  --color-accent-2-dark:   var(--olive-700);
+
+  --color-accent-3:        var(--petrol-500);
+  --color-accent-3-light:  var(--petrol-100);
+  --color-accent-3-dark:   var(--petrol-700);
+
+  /* ── Focus / Interactive ── */
+  --color-focus-ring:      var(--petrol-300);
+}

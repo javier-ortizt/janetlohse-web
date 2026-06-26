@@ -1,0 +1,86 @@
+/* ── DS Tokens (must be first) ── */
+@import './tokens/colors.css';
+@import './tokens/typography.css';
+@import './tokens/spacing.css';
+@import './tokens/effects.css';
+
+/* ── Font Faces ── */
+@font-face { font-family: 'Gilroy'; src: url('/fonts/Gilroy-ExtraBold.otf') format('opentype'); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Gilroy'; src: url('/fonts/Gilroy-Light.otf') format('opentype'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Quicksand'; src: url('/fonts/Quicksand-Light.ttf') format('truetype'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Quicksand'; src: url('/fonts/Quicksand-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Quicksand'; src: url('/fonts/Quicksand-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Quicksand'; src: url('/fonts/Quicksand-SemiBold.ttf') format('truetype'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Quicksand'; src: url('/fonts/Quicksand-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Cubano'; src: url('/fonts/Cubano.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Bungee'; src: url('/fonts/Bungee-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'JL-Glyph-L'; src: url('/fonts/L Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'JL-Glyph-O'; src: url('/fonts/O Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'JL-Glyph-P'; src: url('/fonts/P Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'JL-Glyph-R'; src: url('/fonts/R Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+
+/* ── Reset ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-regular);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+section { scroll-margin-top: 72px; }
+
+/* ── Hover utilities (used in Server Components instead of onMouseEnter) ── */
+.link-on-dark {
+  color: var(--neutral-400);
+  transition: color var(--transition-fast);
+}
+.link-on-dark:hover { color: var(--neutral-0); }
+
+.link-subtle {
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+.link-subtle:hover { color: var(--color-text-primary); }
+
+.link-footer {
+  color: var(--neutral-500);
+  transition: color var(--transition-fast);
+}
+.link-footer:hover { color: var(--neutral-300); }
+
+/* ── Responsive Grid Layouts ── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: start; }
+.grid-2-sm { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+.grid-2-center { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: var(--space-20); align-items: center; }
+.grid-charla { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); }
+.grid-book { display: grid; grid-template-columns: 280px 1fr; gap: var(--space-16); align-items: center; }
+.grid-book-home { display: grid; grid-template-columns: 300px 1fr; gap: var(--space-20); align-items: center; }
+.grid-bio { display: grid; grid-template-columns: 380px 1fr; gap: var(--space-16); align-items: start; }
+
+/* ── Mobile overrides ── */
+@media (max-width: 768px) {
+  section {
+    padding-left: var(--space-5) !important;
+    padding-right: var(--space-5) !important;
+  }
+  .nav-inner {
+    padding-left: var(--space-5) !important;
+    padding-right: var(--space-5) !important;
+  }
+  .grid-2, .grid-2-center, .grid-charla, .grid-book, .grid-book-home, .grid-bio {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-8) !important;
+  }
+  .grid-2-sm {
+    grid-template-columns: 1fr !important;
+  }
+  .sticky-col { position: static !important; top: auto !important; }
+  .hide-mobile { display: none !important; }
+  .nav-links-desktop { display: none !important; }
+  .nav-hamburger { display: flex !important; }
+}
