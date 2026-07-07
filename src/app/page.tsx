@@ -314,10 +314,16 @@ export default function Home() {
           display: 'flex', alignItems: 'center',
           padding: 'var(--space-16) var(--space-12)',
         }}>
-          <div className="libro-bg">
+          <div className="libro-bg-desktop">
             <Image
               src="/images/libro-banner.jpg" alt="Una mesa para uno — Janet Lohse"
               fill style={{ objectFit: 'cover' }}
+            />
+          </div>
+          <div className="libro-bg-mobile">
+            <Image
+              src="/images/libro-3d.png" alt="Una mesa para uno — Janet Lohse"
+              width={300} height={230} style={{ width: '100%', height: 'auto', maxWidth: '280px' }}
             />
           </div>
           <div className="libro-content" style={{ maxWidth: 'var(--content-max)', margin: '0 auto', width: '100%' }}>
@@ -336,7 +342,7 @@ export default function Home() {
                 <strong style={{ fontWeight: 700 }}>Publicado por Urano World</strong> · Tendencias
               </p>
               <p style={{
-                fontFamily: 'var(--font-body)', fontSize: '17px',
+                fontFamily: 'var(--font-body)', fontSize: '17px', textAlign: 'justify',
                 lineHeight: 1.75, color: '#000000', marginBottom: '32px',
               }}>
                 Una exploración sobre la diferencia entre estar a solas y sentirse a solas. A partir de experiencias, conversaciones e investigación, el libro invita a cuestionar los prejuicios asociados a la soledad y a construir una relación más amable con la propia compañía.

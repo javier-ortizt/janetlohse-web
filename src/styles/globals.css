@@ -116,7 +116,8 @@ section { scroll-margin-top: 72px; }
 .sm-body   { grid-area: body; }
 
 /* ── Libro con banner de fondo (home) ── */
-.libro-bg { position: absolute; inset: 0; z-index: 0; }
+.libro-bg-desktop { position: absolute; inset: 0; z-index: 0; }
+.libro-bg-mobile { display: none; }
 .libro-content { position: relative; z-index: 1; }
 
 /* ── Mobile overrides ── */
@@ -187,12 +188,16 @@ section { scroll-margin-top: 72px; }
   .servicios-grid { grid-template-columns: repeat(2, 1fr) !important; }
 }
 
-/* ── Libro: breakpoint propio (la franja de fondo necesita más ancho para que el texto no choque con el libro) ── */
+/* ── Libro: breakpoint propio — bajo 1050px se apila: libro arriba, texto y botón abajo ── */
 @media (max-width: 1049px) {
   .libro-section {
     display: block !important; min-height: 0 !important; padding: 0 !important;
   }
-  .libro-bg { position: static !important; height: 220px; }
+  .libro-bg-desktop { display: none !important; }
+  .libro-bg-mobile {
+    display: flex !important; justify-content: center;
+    padding: var(--space-8) var(--space-5) 0;
+  }
   .libro-content { padding: var(--space-8) var(--space-5) !important; }
-  .libro-text { max-width: none !important; margin-left: 0 !important; }
+  .libro-text { max-width: none !important; margin-left: 0 !important; text-align: center; }
 }
