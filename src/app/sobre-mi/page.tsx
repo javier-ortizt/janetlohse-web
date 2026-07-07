@@ -34,12 +34,8 @@ export default function SobreMiPage() {
 
         {/* Bio principal */}
         <section style={{ background: 'var(--neutral-0)', padding: 'var(--space-24) var(--space-12)' }}>
-          <div style={{
-            maxWidth: 'var(--content-max)', margin: '0 auto',
-            display: 'grid', gridTemplateColumns: '380px 1fr',
-            gap: 'var(--space-16)', alignItems: 'start',
-          }}>
-            <div style={{ position: 'sticky', top: '96px' }}>
+          <div className="grid-bio" style={{ maxWidth: 'var(--content-max)', margin: '0 auto' }}>
+            <div className="sticky-col" style={{ position: 'sticky', top: '96px' }}>
               <div style={{
                 position: 'relative', borderRadius: 'var(--radius-lg)',
                 overflow: 'hidden', aspectRatio: '3/4', marginBottom: '24px',
@@ -83,7 +79,7 @@ export default function SobreMiPage() {
                 fontFamily: 'var(--font-body)', fontSize: '17px', lineHeight: 1.75,
                 color: 'var(--color-text-secondary)', marginBottom: '24px',
               }}>
-                Mi enfoque integra experiencia de usuario, ergonomía, psicología del color, acústica, iluminación y protocolos de atención. He desarrollado una mirada aplicable a gastronomía, hotelería, turismo, espacios culturales, atención al público y empresas.
+                Mi enfoque integra experiencia de usuario, ergonomía, psicología del color, neurodiversidad, acústica, iluminación y protocolos de atención. He desarrollado una mirada aplicable a gastronomía, hotelería, turismo, espacios culturales, atención al público y empresas.
               </p>
               <p style={{
                 fontFamily: 'var(--font-body)', fontSize: '17px', lineHeight: 1.75,
@@ -103,32 +99,6 @@ export default function SobreMiPage() {
                 </Button>
               </Link>
             </div>
-          </div>
-        </section>
-
-        {/* Fotos secundarias */}
-        <section style={{
-          background: 'var(--neutral-50)',
-          borderTop: '1px solid var(--color-border)',
-          padding: 'var(--space-20) var(--space-12)',
-        }}>
-          <div style={{
-            maxWidth: 'var(--content-max)', margin: '0 auto',
-            display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '20px',
-          }}>
-            {[
-              { src: '/images/janet-1.jpg', alt: 'Janet Lohse — retrato íntimo' },
-              { src: '/images/janet-4.jpg', alt: 'Janet Lohse — en trabajo' },
-              { src: '/images/janet-2.jpg', alt: 'Janet Lohse — sesión editorial' },
-            ].map(img => (
-              <div key={img.src} style={{
-                position: 'relative', borderRadius: 'var(--radius-lg)',
-                overflow: 'hidden', aspectRatio: '3/4',
-              }}>
-                <Image src={img.src} alt={img.alt} fill style={{ objectFit: 'cover', objectPosition: 'center top' }} />
-              </div>
-            ))}
           </div>
         </section>
       </main>

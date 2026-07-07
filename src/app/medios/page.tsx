@@ -197,59 +197,26 @@ export default function MediosPage() {
           padding: 'var(--space-24) var(--space-12)',
         }}>
           <div style={{ maxWidth: 'var(--content-max)', margin: '0 auto' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-16)' }}>
-              <div>
-                <h2 style={{
-                  fontFamily: 'var(--font-display)', fontWeight: 800,
-                  fontSize: 'clamp(28px, 3vw, 40px)', letterSpacing: '-0.03em',
-                  color: 'var(--color-text-primary)', lineHeight: 1.1, marginBottom: '20px',
-                }}>
-                  Para medios
-                </h2>
-                <p style={{
-                  fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: 1.75,
-                  color: 'var(--color-text-secondary)', marginBottom: '16px',
-                }}>
-                  Disponible para entrevistas, colaboraciones editoriales, participación en televisión, radio y podcasts.
-                </p>
-                <p style={{
-                  fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: 1.75,
-                  color: 'var(--color-text-secondary)',
-                }}>
-                  Para solicitar material de prensa, coordinar una entrevista o explorar una colaboración, escríbeme directamente.
-                </p>
-              </div>
-              <div>
-                <h2 style={{
-                  fontFamily: 'var(--font-display)', fontWeight: 800,
-                  fontSize: 'clamp(28px, 3vw, 40px)', letterSpacing: '-0.03em',
-                  color: 'var(--color-text-primary)', lineHeight: 1.1, marginBottom: '20px',
-                }}>
-                  Puede participar como
-                </h2>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                  {[
-                    'Conferencista', 'Conductora', 'Moderadora de paneles',
-                    'Entrevistadora', 'Invitada en televisión, radio o podcast',
-                    'Colaboradora de contenidos culturales',
-                    'Anfitriona de conversaciones institucionales',
-                    'Creadora de contenido para marcas o proyectos editoriales',
-                  ].map(r => (
-                    <div key={r} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                      <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'var(--color-accent-1)', flexShrink: 0 }} />
-                      <p style={{ fontFamily: 'var(--font-body)', fontSize: '15px', color: 'var(--color-text-secondary)' }}>{r}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div style={{ marginTop: '48px' }}>
+            <div style={{ maxWidth: '560px' }}>
+              <h2 style={{
+                fontFamily: 'var(--font-display)', fontWeight: 800,
+                fontSize: 'clamp(28px, 3vw, 40px)', letterSpacing: '-0.03em',
+                color: 'var(--color-text-primary)', lineHeight: 1.1, marginBottom: '20px',
+              }}>
+                Para medios
+              </h2>
+              <p style={{
+                fontFamily: 'var(--font-body)', fontSize: '17px', lineHeight: 1.75,
+                color: 'var(--color-text-secondary)', marginBottom: '32px',
+              }}>
+                Disponible para entrevistas, colaboraciones editoriales y participación en televisión, radio y podcasts.
+              </p>
               <Link href="/contacto">
                 <span style={{
                   fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: '15px',
                   color: 'var(--color-accent-1)', letterSpacing: '0.04em',
                 }}>
-                  Contactar para prensa →
+                  Contactar →
                 </span>
               </Link>
             </div>

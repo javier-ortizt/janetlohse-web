@@ -9,6 +9,7 @@ const servicios = [
   'Diseño de servicios / consultoría',
   'Moderación o conducción',
   'Entrevista / medios',
+  'Colaboración de marca',
   'Otro',
 ];
 
@@ -64,7 +65,7 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-5)' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-4)' }}>
+      <div className="grid-2-sm">
         <Input label="Nombre" name="nombre" placeholder="Tu nombre" required />
         <Input label="Institución u organización" name="organizacion" placeholder="Empresa, municipio, ONG…" />
       </div>

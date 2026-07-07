@@ -39,48 +39,7 @@ export default function ContactoPage() {
 
         {/* Formulario */}
         <section style={{ background: 'var(--neutral-0)', padding: 'var(--space-24) var(--space-12)' }}>
-          <div style={{
-            maxWidth: 'var(--content-max)', margin: '0 auto',
-            display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-20)',
-            alignItems: 'start',
-          }}>
-            {/* Info lateral */}
-            <div>
-              <h2 style={{
-                fontFamily: 'var(--font-display)', fontWeight: 800,
-                fontSize: 'clamp(28px, 3vw, 40px)', letterSpacing: '-0.03em',
-                color: 'var(--color-text-primary)', lineHeight: 1.1, marginBottom: '24px',
-              }}>
-                Contáctame
-              </h2>
-              <p style={{
-                fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: 1.75,
-                color: 'var(--color-text-secondary)', marginBottom: '40px',
-              }}>
-                Comparte el contexto de tu institución u organización y qué tipo de servicio te interesa. Te respondo en menos de 48 horas.
-              </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
-                {[
-                  { label: 'Charlas y conversatorios', desc: 'Presencial u online · 60 a 90 minutos · Adaptable.' },
-                  { label: 'Diseño de servicios', desc: 'Diagnóstico de experiencia · Consultoría · Taller.' },
-                  { label: 'Comunicaciones y medios', desc: 'Entrevistas, conducción, moderación de paneles.' },
-                ].map(({ label, desc }) => (
-                  <div key={label}>
-                    <p style={{
-                      fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: '14px',
-                      color: 'var(--color-text-primary)', marginBottom: '4px',
-                    }}>
-                      {label}
-                    </p>
-                    <p style={{ fontFamily: 'var(--font-body)', fontSize: '14px', color: 'var(--color-text-tertiary)', lineHeight: 1.5 }}>
-                      {desc}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Formulario */}
+          <div style={{ maxWidth: '680px', margin: '0 auto' }}>
             <ContactForm />
           </div>
         </section>

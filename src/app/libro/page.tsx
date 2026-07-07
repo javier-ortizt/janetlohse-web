@@ -32,11 +32,7 @@ export default function LibroPage() {
           background: 'var(--neutral-900)',
           padding: '120px var(--space-12) 80px',
         }}>
-          <div style={{
-            maxWidth: 'var(--content-max)', margin: '0 auto',
-            display: 'grid', gridTemplateColumns: '280px 1fr',
-            gap: 'var(--space-16)', alignItems: 'center',
-          }}>
+          <div className="grid-book" style={{ maxWidth: 'var(--content-max)', margin: '0 auto' }}>
             <div style={{
               position: 'relative', borderRadius: 'var(--radius-lg)',
               overflow: 'hidden', aspectRatio: '2/3', boxShadow: 'var(--shadow-xl)',
@@ -100,10 +96,10 @@ export default function LibroPage() {
               fontFamily: 'var(--font-body)', fontSize: '17px', lineHeight: 1.8,
               color: 'var(--color-text-secondary)', marginBottom: '40px',
             }}>
-              Editado por Urano World y disponible en librerías de Chile y online.
+              Editado por Urano World y disponible en librerías y online.
             </p>
-            <Link href="https://www.instagram.com/janet.lohse/" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="md">Ver dónde comprarlo</Button>
+            <Link href="https://www.buscalibre.cl/libro-mesa-para-uno/9789566196693/p/56104983" target="_blank" rel="noopener noreferrer">
+              <Button variant="primary" size="md" style={{ background: 'var(--burgundy-500)' }}>Comprar</Button>
             </Link>
           </div>
         </section>

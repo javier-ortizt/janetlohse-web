@@ -62,10 +62,7 @@ export default function ServiciosPage() {
 
         {/* Descripción */}
         <section style={{ background: 'var(--neutral-0)', padding: 'var(--space-24) var(--space-12)' }}>
-          <div style={{
-            maxWidth: 'var(--content-max)', margin: '0 auto',
-            display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-16)',
-          }}>
+          <div className="grid-2" style={{ maxWidth: 'var(--content-max)', margin: '0 auto' }}>
             <div>
               <Badge variant="olive" style={{ marginBottom: '20px' }}>Consultoría</Badge>
               <h2 style={{
@@ -134,9 +131,7 @@ export default function ServiciosPage() {
           padding: 'var(--space-24) var(--space-12)',
         }}>
           <div style={{ maxWidth: 'var(--content-max)', margin: '0 auto' }}>
-            <div style={{
-              display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-16)', alignItems: 'start',
-            }}>
+            <div className="grid-2" style={{ alignItems: 'start' }}>
               <div>
                 <p style={{
                   fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: '11px',
@@ -209,7 +204,7 @@ export default function ServiciosPage() {
             </p>
             <Link href="/contacto">
               <Button variant="primary" size="lg" style={{ background: 'var(--burgundy-500)' }}>
-                Pedir propuesta
+                Contáctame
               </Button>
             </Link>
           </div>

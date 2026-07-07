@@ -29,6 +29,7 @@ body {
   font-weight: var(--font-weight-regular);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
@@ -56,11 +57,67 @@ section { scroll-margin-top: 72px; }
 /* ── Responsive Grid Layouts ── */
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: start; }
 .grid-2-sm { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
-.grid-2-center { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: var(--space-20); align-items: center; }
 .grid-charla { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); }
 .grid-book { display: grid; grid-template-columns: 280px 1fr; gap: var(--space-16); align-items: center; }
-.grid-book-home { display: grid; grid-template-columns: 300px 1fr; gap: var(--space-20); align-items: center; }
 .grid-bio { display: grid; grid-template-columns: 380px 1fr; gap: var(--space-16); align-items: start; }
+
+.mobile-only { display: none; }
+
+/* ── Carrusel horizontal genérico (mobile) — usado por Servicios y Charlas ── */
+.hcarousel { position: relative; }
+.hcarousel-track {
+  display: flex; gap: 14px; overflow-x: auto;
+  scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+  padding: 4px 4px 8px; scrollbar-width: none;
+}
+.hcarousel-track::-webkit-scrollbar { display: none; }
+.hcarousel-card { flex: 0 0 88%; scroll-snap-align: start; }
+.hcarousel-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm); color: var(--color-text-primary);
+  cursor: pointer; z-index: 2; padding: 0;
+}
+.hcarousel-arrow-left { left: -4px; }
+.hcarousel-arrow-right { right: -4px; }
+
+/* ── Franja intermedia (home) ── */
+.franja-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-8); }
+.franja-item {
+  display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+  text-align: center; gap: 12px; padding: 0 var(--space-6);
+  border-left: 1px solid var(--burgundy-700);
+}
+.franja-item:first-child { border-left: none; }
+
+.franja-arrow { display: none; }
+
+@keyframes franjaCarousel {
+  0%   { opacity: 0; }
+  4%   { opacity: 1; }
+  30%  { opacity: 1; }
+  34%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* ── Sobre mí (home) ── */
+.grid-sobre-mi {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  grid-template-areas: "photo header" "photo body";
+  column-gap: var(--space-20);
+  row-gap: 0;
+  align-items: start;
+}
+.sm-photo  { grid-area: photo; }
+.sm-header { grid-area: header; }
+.sm-body   { grid-area: body; }
+
+/* ── Libro con banner de fondo (home) ── */
+.libro-bg { position: absolute; inset: 0; z-index: 0; }
+.libro-content { position: relative; z-index: 1; }
 
 /* ── Mobile overrides ── */
 @media (max-width: 768px) {
@@ -72,15 +129,70 @@ section { scroll-margin-top: 72px; }
     padding-left: var(--space-5) !important;
     padding-right: var(--space-5) !important;
   }
-  .grid-2, .grid-2-center, .grid-charla, .grid-book, .grid-book-home, .grid-bio {
+  .grid-2, .grid-charla, .grid-book, .grid-bio {
     grid-template-columns: 1fr !important;
     gap: var(--space-8) !important;
+  }
+  .grid-sobre-mi {
+    grid-template-columns: 1fr !important;
+    grid-template-areas: "header" "photo" "body" !important;
+    row-gap: var(--space-6) !important;
   }
   .grid-2-sm {
     grid-template-columns: 1fr !important;
   }
   .sticky-col { position: static !important; top: auto !important; }
   .hide-mobile { display: none !important; }
+  .mobile-only { display: block !important; }
   .nav-links-desktop { display: none !important; }
   .nav-hamburger { display: flex !important; }
+
+  .hero-photo { object-position: 75% top !important; }
+
+  .sobre-mi-logo { width: 90px !important; position: relative; top: 26px; }
+
+  .sobre-mi-section { padding-top: var(--space-10) !important; padding-bottom: var(--space-10) !important; }
+
+  .franja-section { padding-top: var(--space-6) !important; padding-bottom: var(--space-6) !important; }
+
+  .franja-grid {
+    display: block !important;
+    position: relative;
+    height: 130px;
+    overflow: hidden;
+  }
+  .franja-item {
+    position: absolute !important; inset: 0;
+    border: none !important; padding: 0 var(--space-8) !important;
+    justify-content: center !important;
+    opacity: 0;
+    animation: franjaCarousel 9s infinite;
+  }
+  .franja-item:nth-child(1) { animation-delay: 0s; }
+  .franja-item:nth-child(2) { animation-delay: 3s; }
+  .franja-item:nth-child(3) { animation-delay: 6s; }
+
+  .franja-arrow {
+    display: flex; align-items: center; justify-content: center;
+    position: absolute; top: 50%; transform: translateY(-50%);
+    z-index: 2; color: var(--burgundy-400); opacity: 0.8;
+  }
+  .franja-arrow-left { left: 0; }
+  .franja-arrow-right { right: 0; }
+
+}
+
+/* ── Servicios grid: fuerza 2×2 en tablet/mobile (evita el 3+1 de auto-fit) ── */
+@media (max-width: 1024px) {
+  .servicios-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* ── Libro: breakpoint propio (la franja de fondo necesita más ancho para que el texto no choque con el libro) ── */
+@media (max-width: 1049px) {
+  .libro-section {
+    display: block !important; min-height: 0 !important; padding: 0 !important;
+  }
+  .libro-bg { position: static !important; height: 220px; }
+  .libro-content { padding: var(--space-8) var(--space-5) !important; }
+  .libro-text { max-width: none !important; margin-left: 0 !important; }
 }

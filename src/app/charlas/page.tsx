@@ -7,7 +7,7 @@ const charlasPrincipales = [
   {
     bv: 'burgundy' as const,
     title: 'Mi soledad elegida',
-    subtitle: 'Ligado al libro / editorial',
+    subtitle: 'Autonomía y vínculos',
     desc: 'Una conversación sobre la diferencia entre estar a solas y sentirse a solas. Autonomía, prejuicios sociales y el disfrute de la propia compañía.',
     publico: 'Empresas, universidades, centros culturales, organizaciones de bienestar.',
     objetivos: 'Resignificar la soledad. Promover la autonomía y el autoconocimiento. Abrir conversaciones sobre vínculos y presión social.',
@@ -23,7 +23,7 @@ const charlasPrincipales = [
     desc: 'Una charla sobre alta sensibilidad, percepción intensa, sobreestimulación y formas más amables de habitar la vida cotidiana.',
     publico: 'Áreas de RRHH, bienestar y diversidad. Centros psicológicos, organizaciones vinculadas a TEA y neurodivergencia.',
     objetivos: 'Visibilizar la alta sensibilidad y el TEA. Entregar herramientas para entornos más amables. Fomentar la inclusión sensorial.',
-    formatos: ['Charla', 'Taller'],
+    formatos: ['Charla', 'Conversatorio', 'Taller'],
     duracion: '60 a 90 minutos',
     modalidad: 'Presencial u online',
     temas: ['Neurodiversidad', 'TEA', 'Sensorialidad'],
@@ -35,7 +35,7 @@ const charlasPrincipales = [
     desc: 'Una aproximación al diseño de espacios y servicios desde la experiencia de usuario, la ergonomía, la acústica, la iluminación, el protocolo y el confort sensorial.',
     publico: 'Hoteles, restaurantes, espacios culturales, municipalidades, empresas de servicios.',
     objetivos: 'Mostrar el impacto del diseño sensorial en la experiencia. Entregar criterios aplicables a espacios reales.',
-    formatos: ['Charla', 'Moderación de panel'],
+    formatos: ['Charla', 'Conversatorio', 'Taller'],
     duracion: '60 a 90 minutos',
     modalidad: 'Presencial u online',
     temas: ['Diseño', 'Espacios', 'Protocolo'],
@@ -117,18 +117,28 @@ export default function CharlasPage() {
           padding: 'var(--space-24) var(--space-12)',
         }}>
           <div style={{ maxWidth: 'var(--content-max)', margin: '0 auto' }}>
-            <div style={{
-              display: 'grid', gridTemplateColumns: '1fr 1fr',
-              gap: 'var(--space-16)', alignItems: 'start',
-            }}>
+            <div className="grid-2" style={{ alignItems: 'start' }}>
               <div>
                 <h2 style={{
                   fontFamily: 'var(--font-display)', fontWeight: 800,
                   fontSize: 'clamp(28px, 3vw, 40px)', letterSpacing: '-0.03em',
-                  color: 'var(--color-text-primary)', marginBottom: '32px',
+                  color: 'var(--color-text-primary)', marginBottom: '16px',
                 }}>
-                  Otras temáticas disponibles
+                  ¿Tienes otra idea?
                 </h2>
+                <p style={{
+                  fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: 1.75,
+                  color: 'var(--color-text-secondary)', marginBottom: '28px',
+                }}>
+                  Puedo desarrollar una charla o conversatorio a partir del contexto específico de tu organización. Si ninguna de las propuestas anteriores se ajusta del todo, podemos co-crear algo juntos.
+                </p>
+                <p style={{
+                  fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: '12px',
+                  letterSpacing: '0.10em', textTransform: 'uppercase',
+                  color: 'var(--color-text-tertiary)', marginBottom: '16px',
+                }}>
+                  Otros territorios que también exploro
+                </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   {otrasTemáticas.map(t => (
                     <div key={t} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -181,7 +191,7 @@ export default function CharlasPage() {
               fontSize: 'clamp(36px, 4vw, 56px)', letterSpacing: '-0.04em',
               color: 'var(--neutral-0)', lineHeight: 1.05, marginBottom: '20px',
             }}>
-              Solicita esta charla
+              ¿Conversamos sobre una charla?
             </h2>
             <p style={{
               fontFamily: 'var(--font-body)', fontSize: '17px',
@@ -191,7 +201,7 @@ export default function CharlasPage() {
             </p>
             <Link href="/contacto">
               <Button variant="primary" size="lg" style={{ background: 'var(--burgundy-500)' }}>
-                Pedir propuesta
+                Contáctame
               </Button>
             </Link>
           </div>
@@ -204,9 +214,8 @@ export default function CharlasPage() {
 
 function CharlaDetalle({ bv, title, subtitle, desc, publico, objetivos, formatos, duracion, modalidad, temas }: typeof charlasPrincipales[0]) {
   return (
-    <div style={{
-      display: 'grid', gridTemplateColumns: '1fr 1fr',
-      gap: 'var(--space-12)', borderBottom: '1px solid var(--color-border)', paddingBottom: '48px',
+    <div className="grid-charla" style={{
+      borderBottom: '1px solid var(--color-border)', paddingBottom: '48px',
     }}>
       <div>
         <Badge variant={bv} style={{ marginBottom: '16px' }}>{subtitle}</Badge>
@@ -243,12 +252,12 @@ function CharlaDetalle({ bv, title, subtitle, desc, publico, objetivos, formatos
           <p style={{ fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: '12px', letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--color-text-tertiary)', marginBottom: '8px' }}>Formato</p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '15px', color: 'var(--color-text-secondary)' }}>{formatos.join(' · ')}</p>
         </div>
-        <div style={{ display: 'flex', gap: 'var(--space-6)' }}>
+        <div style={{ display: 'flex', gap: 'var(--space-6)', flexWrap: 'wrap' }}>
           <InfoBlock label="Duración" text={duracion} />
           <InfoBlock label="Modalidad" text={modalidad} />
         </div>
         <Link href="/contacto">
-          <Button variant="outline" size="md">Solicitar esta charla</Button>
+          <Button variant="outline" size="md">Contáctame</Button>
         </Link>
       </div>
     </div>
