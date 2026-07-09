@@ -167,27 +167,27 @@ export default function Home() {
               <p style={{
                 fontFamily: 'var(--font-display)', fontWeight: 300,
                 fontSize: 'clamp(17px, 2vw, 22px)', letterSpacing: '-0.01em',
-                color: 'var(--color-text-secondary)', lineHeight: 1.3, marginBottom: '24px',
+                color: 'var(--color-text-primary)', lineHeight: 1.3, marginBottom: '24px',
               }}>
-                Una mirada que une diseño, escritura y comunicación
+                <strong style={{ fontWeight: 800 }}>Una mirada que une diseño, escritura y comunicación</strong>
               </p>
               <p style={{
                 fontFamily: 'var(--font-body)', fontSize: '17px', textAlign: 'justify',
                 lineHeight: 1.7, color: 'var(--color-text-secondary)', marginBottom: '16px',
               }}>
-                Soy Janet Lohse, autora de <em>Una mesa para uno</em>, publicado por Urano World, y <Emphasis>diseñadora metodológica</Emphasis> con formación superior en servicios y experiencias.
+                Soy Janet Lohse, autora de <strong style={{ fontWeight: 700, color: 'var(--color-text-primary)' }}>Una mesa para uno</strong>, publicado por Urano World bajo el sello Tendencias, y diseñadora metodológica especializada en servicios y experiencias.
               </p>
               <p style={{
                 fontFamily: 'var(--font-body)', fontSize: '17px', textAlign: 'justify',
                 lineHeight: 1.7, color: 'var(--color-text-secondary)', marginBottom: '16px',
               }}>
-                Mi trabajo integra experiencia de usuario, ergonomía, psicología del color, acústica, iluminación y protocolos de atención para crear espacios, servicios y experiencias <Emphasis>más amables, cómodas y memorables</Emphasis>. Esta mirada considera tanto los objetivos de cada organización como las distintas necesidades sensoriales de las personas.
+                Integro diseño, experiencia de usuario y comunicación para crear espacios y servicios más amables, cómodos y memorables.
               </p>
               <p style={{
                 fontFamily: 'var(--font-body)', fontSize: '17px', textAlign: 'justify',
                 lineHeight: 1.7, color: 'var(--color-text-secondary)', marginBottom: '36px',
               }}>
-                Como conferencista y comunicadora, transformo temas como la <Emphasis>soledad elegida</Emphasis>, la <Emphasis>alta sensibilidad</Emphasis>, la <Emphasis>neurodivergencia</Emphasis> y la <Emphasis>observación del entorno</Emphasis> en conversaciones cercanas, claras y adaptables a distintos públicos.
+                Como conferencista, abordo la soledad elegida, la alta sensibilidad, la neurodivergencia y la observación del entorno desde una mirada cercana y adaptable.
               </p>
               <div style={{ display: 'flex', gap: 'var(--space-6)', alignItems: 'center', flexWrap: 'wrap' }}>
                 <Link href="/servicios">

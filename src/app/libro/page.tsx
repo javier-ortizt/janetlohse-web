@@ -28,22 +28,36 @@ export default function LibroPage() {
       <Nav />
       <main>
         {/* Header con portada */}
-        <section style={{
+        <section className="libro-page-hero" style={{
           background: 'var(--neutral-900)',
           padding: '120px var(--space-12) 80px',
+          minHeight: '620px',
+          position: 'relative',
+          overflow: 'hidden',
+          display: 'flex',
+          alignItems: 'center',
         }}>
-          <div className="grid-book" style={{ maxWidth: 'var(--content-max)', margin: '0 auto' }}>
+          <div className="hide-mobile" style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+            <Image
+              src="/images/libro-banner.jpg" alt="Una mesa para uno — Janet Lohse"
+              fill style={{ objectFit: 'cover', objectPosition: 'center' }}
+              priority
+            />
             <div style={{
-              position: 'relative', borderRadius: 'var(--radius-lg)',
-              overflow: 'hidden', aspectRatio: '2/3', boxShadow: 'var(--shadow-xl)',
-            }}>
+              position: 'absolute', inset: 0,
+              background: 'linear-gradient(90deg, oklch(15% 0.007 55 / 0.34), oklch(15% 0.007 55 / 0.12) 48%, oklch(15% 0.007 55 / 0.48) 100%)',
+            }} />
+          </div>
+          <div className="libro-page-hero-content">
+            <div className="mobile-only" style={{ textAlign: 'center' }}>
               <Image
-                src="/images/book-cover.jpg" alt="Una mesa para uno — Janet Lohse"
-                fill style={{ objectFit: 'cover' }}
+                src="/images/libro-3d.png" alt="Una mesa para uno — Janet Lohse"
+                width={360} height={276}
                 priority
+                style={{ width: '100%', height: 'auto', maxWidth: '320px', margin: '0 auto' }}
               />
             </div>
-            <div>
+            <div className="libro-page-hero-copy">
               <Badge variant="neutral" style={{ marginBottom: '20px' }}>Autora</Badge>
               <h1 style={{
                 fontFamily: 'var(--font-display)', fontWeight: 800,
@@ -54,7 +68,7 @@ export default function LibroPage() {
               </h1>
               <p style={{
                 fontFamily: 'var(--font-body)', fontSize: '14px',
-                color: 'var(--neutral-500)', letterSpacing: '0.06em',
+                color: 'var(--neutral-300)', letterSpacing: '0.06em',
                 textTransform: 'uppercase', marginBottom: '28px',
               }}>
                 Urano World · 2024
@@ -62,14 +76,13 @@ export default function LibroPage() {
               <p style={{
                 fontFamily: 'var(--font-display)', fontWeight: 300,
                 fontSize: 'clamp(16px, 2vw, 22px)', lineHeight: 1.5,
-                color: 'var(--neutral-300)', maxWidth: '480px',
+                color: 'var(--neutral-200)', maxWidth: '480px',
               }}>
                 Estar sol@ no es sentirse sol@. Ser tu mejor compañía en un mundo hiperconectado.
               </p>
             </div>
           </div>
         </section>
-
         {/* Sobre el libro */}
         <section style={{ background: 'var(--neutral-0)', padding: 'var(--space-24) var(--space-12)' }}>
           <div style={{ maxWidth: 'var(--content-narrow)', margin: '0 auto' }}>
