@@ -3,6 +3,7 @@ import { Nav } from '@/components/Nav';
 import { Footer } from '@/components/Footer';
 import { Button } from '@/components/ds';
 import { FocusTitleRotator } from '@/components/FocusTitleRotator';
+import { OportunidadesDeck } from '@/components/OportunidadesDeck';
 
 const areas = [
   {
@@ -39,16 +40,6 @@ const analisis = [
     desc: 'Experiencia de personas solas y acompañadas, distintas necesidades sensoriales, accesibilidad, comodidad y fidelización.',
     accent: 'var(--petrol-500)',
   },
-];
-
-const oportunidades = [
-  'Quieres fortalecer la recomendación y fidelización de tus clientes.',
-  'Buscas crear una experiencia más amable para distintas necesidades sensoriales.',
-  'Recibes comentarios sobre la atención de tu establecimiento.',
-  'Tu espacio se ve bien, pero la experiencia no se siente completamente coherente.',
-  'Quieres comprender mejor el recorrido de personas solas y acompañadas.',
-  'Tus protocolos de atención varían según el equipo.',
-  'Estás por abrir, remodelar o actualizar un espacio o servicio.',
 ];
 
 const pasos = [
@@ -102,7 +93,7 @@ export default function ServiciosPage() {
               <a href="#como-trabajo" className="link-on-dark" style={{
                 fontFamily: 'var(--font-body)', fontSize: '15px', fontWeight: 600,
               }}>
-                Conocer cómo trabajo ↓
+                Conoce cómo trabajo ↓
               </a>
             </div>
           </div>
@@ -177,43 +168,7 @@ export default function ServiciosPage() {
           </div>
         </section>
 
-        <section style={{ background: 'var(--burgundy-800)', padding: 'var(--space-20) var(--space-12)' }}>
-          <div style={{ maxWidth: 'var(--content-max)', margin: '0 auto' }}>
-            <p style={{
-              fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: '11px',
-              letterSpacing: '0.16em', textTransform: 'uppercase',
-              color: 'var(--burgundy-300)', marginBottom: '14px',
-            }}>
-              Cuándo puede ayudarte
-            </p>
-            <h2 style={{
-              fontFamily: 'var(--font-display)', fontWeight: 800,
-              fontSize: 'clamp(28px, 3vw, 42px)', letterSpacing: 0,
-              color: 'var(--neutral-0)', lineHeight: 1.08, marginBottom: '28px',
-            }}>
-              Este servicio puede ser adecuado si:
-            </h2>
-            <div style={{ borderTop: '1px solid var(--burgundy-600)' }}>
-              {oportunidades.map(item => (
-                <div key={item} style={{
-                  display: 'flex', alignItems: 'baseline', gap: 'var(--space-4)',
-                  padding: '18px 0', borderBottom: '1px solid var(--burgundy-600)',
-                }}>
-                  <span style={{
-                    width: '7px', height: '7px', borderRadius: '50%',
-                    background: 'var(--burgundy-300)', flexShrink: 0,
-                  }} />
-                  <p style={{
-                    fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: 1.55,
-                    color: 'var(--neutral-100)',
-                  }}>
-                    {item}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <OportunidadesDeck />
 
         <section style={{ background: 'var(--neutral-50)', padding: 'var(--space-24) var(--space-12)' }}>
           <div className="grid-2" style={{ maxWidth: 'var(--content-max)', margin: '0 auto', alignItems: 'center' }}>

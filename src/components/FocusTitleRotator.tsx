@@ -14,7 +14,7 @@ export function FocusTitleRotator() {
   React.useEffect(() => {
     const timer = window.setInterval(() => {
       setIndex(current => (current + 1) % phrases.length);
-    }, 4200);
+    }, 2000);
 
     return () => window.clearInterval(timer);
   }, []);
